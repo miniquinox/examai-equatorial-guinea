@@ -1,9 +1,12 @@
 /** @jsxImportSource react */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import { Button } from "./ui/button";
-import { BookOpen, User2, FileCheck, BadgeCheck, ChartBar, BrainCircuit } from "lucide-react";
+import { 
+  BookOpen, User2, FileCheck, BadgeCheck, ChartBar, BrainCircuit,
+  Users, Clock, Award, CheckCircle2, Star
+} from "lucide-react";
 
 const mockChartData = [
   { name: "Ene", value: 30 },
@@ -78,34 +81,99 @@ const CalificacionCard = () => (
   </div>
 );
 
-const GestionCard = () => (
-  <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-inner">
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <div className="p-2 bg-blue-100 rounded-lg">
-            <User2 className="w-5 h-5 text-blue-600" />
+const GestionCard = () => {
+  const [students, setStudents] = useState(250);
+  const [questions, setQuestions] = useState(15);
+  const [accuracy, setAccuracy] = useState(98);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStudents(prev => prev + 1);
+      if (students > 260) setStudents(250);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [students]);
+
+  return (
+    <div className="h-full p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+      <div className="space-y-4 h-full flex flex-col">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="p-2 bg-blue-100 rounded-lg group-hover:scale-110 transition-transform">
+              <User2 className="w-5 h-5 text-blue-600" />
+            </div>
+            <span className="font-medium text-gray-700">Demo Examen SQL</span>
           </div>
-          <span className="font-medium text-gray-700">Demo Examen SQL</span>
+          <span className="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full group-hover:bg-blue-200 transition-colors">
+            Activo
+          </span>
         </div>
-      </div>
-      <div className="grid grid-cols-3 gap-3">
-        <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-          <div className="text-3xl font-bold text-blue-600">250</div>
-          <div className="text-xs text-gray-500">Estudiantes</div>
+
+        <div className="flex-grow space-y-6">
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-blue-50/50 transition-all overflow-hidden">
+              <div className="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform">
+                {students}
+              </div>
+              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
+                <Users className="w-3 h-3" /> Estudiantes
+              </div>
+            </div>
+            <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-indigo-50/50 transition-all">
+              <div className="text-3xl font-bold text-indigo-600 group-hover:scale-110 transition-transform">
+                {questions}
+              </div>
+              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
+                <CheckCircle2 className="w-3 h-3" /> Preguntas
+              </div>
+            </div>
+            <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-purple-50/50 transition-all">
+              <div className="text-3xl font-bold text-purple-600 group-hover:scale-110 transition-transform">
+                {accuracy}%
+              </div>
+              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
+                <Star className="w-3 h-3" /> Precisión
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white/50 p-4 rounded-lg group-hover:bg-blue-50/50 transition-all">
+            <h4 className="text-sm font-medium text-gray-700 mb-3">Estadísticas del Examen</h4>
+            <div className="space-y-3">
+              <div>
+                <div className="flex justify-between text-sm mb-1">
+                  <span>Tiempo Promedio</span>
+                  <span className="text-blue-600">45 min</span>
+                </div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full w-3/4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full group-hover:animate-pulse" />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-sm mb-1">
+                  <span>Tasa de Aprobación</span>
+                  <span className="text-indigo-600">85%</span>
+                </div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full group-hover:animate-pulse" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-          <div className="text-3xl font-bold text-indigo-600">15</div>
-          <div className="text-xs text-gray-500">Preguntas</div>
-        </div>
-        <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-          <div className="text-3xl font-bold text-purple-600">98%</div>
-          <div className="text-xs text-gray-500">Precisión</div>
+
+        <div className="flex gap-3 mt-4">
+          <Button variant="outline" className="flex-1 group-hover:bg-blue-50 transition-colors">
+            <Clock className="w-4 h-4 mr-2" /> Historial
+          </Button>
+          <Button className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:from-blue-500 group-hover:to-indigo-500">
+            <Award className="w-4 h-4 mr-2" /> Resultados
+          </Button>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ControlCard = () => (
   <div className="p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl shadow-inner">
@@ -456,10 +524,11 @@ const BenefitsSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {(activePortal === "professor" ? professorCards : studentCards).map((card, index) => {
             const CardComponent = card.Component;
+            const isLastCard = index === 4;
             return (
               <div
                 key={card.title}
-                className={`${index >= 3 ? "lg:col-span-2" : ""} h-full animate-fade-up`}
+                className={`${isLastCard ? "lg:col-span-1" : index === 3 ? "lg:col-span-2" : ""} h-full animate-fade-up`}
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
                 <CardComponent />

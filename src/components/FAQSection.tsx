@@ -5,46 +5,46 @@ const FAQSection = () => {
   const faqData = {
     leftColumn: [
       {
-        question: "Can students manipulate their grades?",
-        answer: "Our AI prevents bias, bribes, or favoritism—ensuring every grade is earned."
+        question: "¿Pueden los estudiantes manipular sus calificaciones?",
+        answer: "Nuestra IA previene sesgos, sobornos o favoritismos, asegurando que cada calificación sea ganada."
       },
       {
-        question: "Can I submit paper exams for grading?",
-        answer: "Yes, students can submit photos of their handwritten exams for AI assessment."
+        question: "¿Puedo enviar exámenes en papel para calificar?",
+        answer: "Sí, los estudiantes pueden enviar fotos de sus exámenes escritos a mano para evaluación por IA."
       },
       {
-        question: "Can it handle all subjects?",
-        answer: "Yes, from math to essays to programming, ExamAi covers all subjects."
+        question: "¿Puede manejar todas las asignaturas?",
+        answer: "Sí, desde matemáticas hasta ensayos y programación, ExamAi cubre todas las asignaturas."
       },
       {
-        question: "Does it work in Spanish & French?",
-        answer: "Yes, it supports grading in Spanish, French, English, and more."
+        question: "¿Funciona en español y francés?",
+        answer: "Sí, admite calificaciones en español, francés, inglés y más idiomas."
       },
       {
-        question: "Do I need government approval to use it?",
-        answer: "Professors and schools can start using ExamAi independently."
+        question: "¿Necesito aprobación gubernamental para usarlo?",
+        answer: "Los profesores y escuelas pueden comenzar a usar ExamAi de forma independiente."
       }
     ],
     rightColumn: [
       {
-        question: "Can professors customize the grading?",
-        answer: "Yes, professors define the standards; AI ensures fairness."
+        question: "¿Pueden los profesores personalizar la calificación?",
+        answer: "Sí, los profesores definen los estándares; la IA asegura la equidad."
       },
       {
-        question: "Can professors review AI grades?",
-        answer: "Yes, every grade is adjustable to maintain teaching integrity."
+        question: "¿Pueden los profesores revisar las calificaciones de la IA?",
+        answer: "Sí, cada calificación es ajustable para mantener la integridad de la enseñanza."
       },
       {
-        question: "Is student data safe?",
-        answer: "Yes, ExamAi follows strict data privacy standards."
+        question: "¿Están seguros los datos de los estudiantes?",
+        answer: "Sí, ExamAi sigue estrictos estándares de privacidad de datos."
       },
       {
-        question: "Can it work for large schools?",
-        answer: "Yes, from small villages to large universities."
+        question: "¿Puede funcionar para escuelas grandes?",
+        answer: "Sí, desde pequeñas aldeas hasta grandes universidades."
       },
       {
-        question: "Can I print or export grades?",
-        answer: "Yes, grades can be downloaded or shared in school reports."
+        question: "¿Puedo imprimir o exportar calificaciones?",
+        answer: "Sí, las calificaciones se pueden descargar o compartir en informes escolares."
       }
     ]
   };
@@ -53,7 +53,7 @@ const FAQSection = () => {
     <div className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-16">
-          Frequently asked questions
+          Preguntas frecuentes
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">

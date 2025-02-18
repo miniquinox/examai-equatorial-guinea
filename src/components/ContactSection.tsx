@@ -10,14 +10,14 @@ const ContactSection = () => {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl font-bold mb-4">
-                Join Us in{" "}
+                Únete a Nosotros en la{" "}
                 <span className="bg-gradient-to-r from-[#009A49] to-[#0072C6] bg-clip-text text-transparent">
-                  Transforming Education
+                  Transformación de la Educación
                 </span>{" "}
-                in Equatorial Guinea
+                en Guinea Ecuatorial
               </h2>
               <p className="text-gray-600 text-lg">
-                We are proud to launch our AI-powered grading platform in Equatorial Guinea—the first in Africa.
+                Nos enorgullece lanzar nuestra plataforma de calificación impulsada por IA en Guinea Ecuatorial, la primera en África.
               </p>
             </div>
 
@@ -30,8 +30,8 @@ const ContactSection = () => {
                     <Phone className="w-6 h-6 text-orange-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Request a Demo for Your School</h3>
-                    <p className="text-gray-500">Schedule a personalized demonstration</p>
+                    <h3 className="text-xl font-semibold text-gray-900">Solicita una Demo para tu Escuela</h3>
+                    <p className="text-gray-500">Programa una demostración personalizada</p>
                   </div>
                 </div>
               </div>
@@ -43,8 +43,8 @@ const ContactSection = () => {
                     <MessageSquare className="w-6 h-6 text-green-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Email Us (Equatorial Guinea Team)</h3>
-                    <p className="text-gray-500">hello@examai.ai</p>
+                    <h3 className="text-xl font-semibold text-gray-900">Envíanos un Email (Equipo de Guinea Ecuatorial)</h3>
+                    <p className="text-gray-500">hola@examai.ai</p>
                   </div>
                 </div>
               </div>
@@ -56,8 +56,8 @@ const ContactSection = () => {
                     <Linkedin className="w-6 h-6 text-purple-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Follow Our Journey in Africa</h3>
-                    <p className="text-gray-500">Connect with us on LinkedIn</p>
+                    <h3 className="text-xl font-semibold text-gray-900">Sigue Nuestro Viaje en África</h3>
+                    <p className="text-gray-500">Conéctate con nosotros en LinkedIn</p>
                   </div>
                 </div>
               </div>
@@ -69,13 +69,13 @@ const ContactSection = () => {
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
+                  Nombre
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Jane Smith"
+                  placeholder="Juan Pérez"
                   className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow"
                 />
               </div>
@@ -88,20 +88,20 @@ const ContactSection = () => {
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="example@mail.com"
+                  placeholder="ejemplo@correo.com"
                   className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow"
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+                  Mensaje
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
-                  placeholder="Your message"
+                  placeholder="Tu mensaje"
                   className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none"
                 />
               </div>
@@ -110,7 +110,7 @@ const ContactSection = () => {
                 type="submit"
                 className="w-full py-3 px-6 bg-gradient-to-r from-[#009A49] to-[#0072C6] hover:from-[#008A39] hover:to-[#0062B6] text-white font-semibold rounded-lg transition-colors"
               >
-                Submit
+                Enviar
               </button>
             </form>
           </div>

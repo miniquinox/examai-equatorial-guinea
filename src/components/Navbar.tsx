@@ -13,9 +13,9 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#how-it-works" className="nav-link">How ExamAI Works</a>
-            <a href="#calculator" className="nav-link">Cost Savings Calculator</a>
-            <a href="#pricing" className="nav-link">Pricing</a>
+            <a href="#how-it-works" className="nav-link">¿Cómo Funciona ExamAI?</a>
+            <a href="#calculator" className="nav-link">Calculadora de Ahorro</a>
+            <a href="#pricing" className="nav-link">Precios</a>
             <a href="#blog" className="nav-link">Blog</a>
           </div>
           
@@ -23,9 +23,9 @@ const Navbar = () => {
             <Button variant="ghost" size="icon">
               <Globe className="h-5 w-5 text-gray-600" />
             </Button>
-            <Button variant="ghost" className="text-gray-700">Log In</Button>
+            <Button variant="ghost" className="text-gray-700">Iniciar Sesión</Button>
             <Button className="bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white hover:opacity-90">
-              Sign Up
+              Registrarse
             </Button>
           </div>
         </div>

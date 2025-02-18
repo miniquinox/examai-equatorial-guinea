@@ -7,38 +7,38 @@ const Features = () => {
   const features = [
     {
       icon: Pencil,
-      title: "Accurate, AI-Powered Grading",
-      description: "Guaranteeing fair and error-free assessments for all students.",
+      title: "Calificación Precisa con IA",
+      description: "Garantizando evaluaciones justas y sin errores para todos los estudiantes.",
       color: "bg-orange-100"
     },
     {
       icon: MessageSquare,
-      title: "Personalized Learning Insights",
-      description: "Helping students understand their strengths and areas to improve.",
+      title: "Análisis Personalizado del Aprendizaje",
+      description: "Ayudando a los estudiantes a comprender sus fortalezas y áreas de mejora.",
       color: "bg-green-100"
     },
     {
       icon: Database,
-      title: "Performance Tracking & Fairness Reports",
-      description: "Giving schools data to ensure fair grading and performance comparisons.",
+      title: "Seguimiento de Rendimiento e Informes de Equidad",
+      description: "Proporcionando datos a las escuelas para garantizar calificaciones justas y comparaciones de rendimiento.",
       color: "bg-blue-100"
     },
     {
       icon: CheckSquare,
-      title: "Professor-Driven Custom Grading",
-      description: "Professors stay in control while AI ensures precision and consistency.",
+      title: "Calificación Personalizada por Profesores",
+      description: "Los profesores mantienen el control mientras la IA asegura precisión y consistencia.",
       color: "bg-purple-100"
     },
     {
       icon: Brain,
-      title: "Build Better Exams with AI",
-      description: "Create custom exams and homework tailored to local curriculum standards.",
+      title: "Crea Mejores Exámenes con IA",
+      description: "Crea exámenes y tareas personalizadas adaptadas a los estándares curriculares locales.",
       color: "bg-purple-100"
     },
     {
       icon: Edit3,
-      title: "Image-Based Grading for Paper Exams",
-      description: "Scan paper exams for accurate grading, reducing errors and bias.",
+      title: "Calificación de Exámenes en Papel",
+      description: "Escanea exámenes en papel para una calificación precisa, reduciendo errores y sesgos.",
       color: "bg-pink-100"
     }
   ];
@@ -47,9 +47,9 @@ const Features = () => {
     <div className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl font-bold mb-4">Discover our Features</h2>
+          <h2 className="text-4xl font-bold mb-4">Descubre Nuestras Funciones</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Enhanced security, fair grading, and transparent assessments, providing educators with real-time analytics and personalized feedback.
+            Seguridad mejorada, calificación justa y evaluaciones transparentes, proporcionando a los educadores análisis en tiempo real y retroalimentación personalizada.
           </p>
         </div>
 

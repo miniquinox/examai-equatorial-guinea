@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 interface Exam {
@@ -8,31 +7,31 @@ interface Exam {
 
 const exams: Record<string, Exam> = {
   math: {
-    question: "What is the derivative of 3x^2 - 2x - 5?",
+    question: "¿Cuál es la derivada de 3x^2 - 2x - 5?",
     rubrics: [
-      "Correct answer: 6x - 2 (5pts)",
-      "Shows steps without skipping important ones (5pts)"
+      "Respuesta correcta: 6x - 2 (5pts)",
+      "Muestra los pasos sin saltar ninguno importante (5pts)"
     ]
   },
   french: {
-    question: "Translate: 'Equatorial Guinea leads Africa in educational innovation.'",
+    question: "Traduce: 'Guinea Ecuatorial lidera África en innovación educativa.'",
     rubrics: [
-      "Correct translation to French (5pts)",
-      "Grammar and punctuation accuracy (5pts)"
+      "Traducción correcta al francés (5pts)",
+      "Precisión en gramática y puntuación (5pts)"
     ]
   },
   history: {
-    question: "When did Equatorial Guinea gain independence, and who was its first president?",
+    question: "¿Cuándo obtuvo Guinea Ecuatorial su independencia y quién fue su primer presidente?",
     rubrics: [
-      "Correct date and leader (5pts)",
-      "Context and historical significance (5pts)"
+      "Fecha y líder correctos (5pts)",
+      "Contexto e importancia histórica (5pts)"
     ]
   },
   science: {
-    question: "Explain the importance of Equatorial Guinea's biodiversity in the Gulf of Guinea.",
+    question: "Explica la importancia de la biodiversidad de Guinea Ecuatorial en el Golfo de Guinea.",
     rubrics: [
-      "Scientific accuracy (5pts)",
-      "Environmental impact analysis (5pts)"
+      "Precisión científica (5pts)",
+      "Análisis de impacto ambiental (5pts)"
     ]
   }
 };
@@ -50,7 +49,7 @@ const GradingDemo = () => {
 
   const handleSubmit = async () => {
     if (!validateInputs()) {
-      alert("Please fill in both fields correctly.");
+      alert("Por favor, complete ambos campos correctamente.");
       return;
     }
 
@@ -96,22 +95,21 @@ const GradingDemo = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h3 className="text-5xl font-bold text-white mb-6">
-            Try our{" "}
+            ¡Prueba nuestro{" "}
             <span className="bg-gradient-to-r from-[#009A49] via-[#0072C6] to-[#7E69AB] text-transparent bg-clip-text">
-              Grading System Demo
+              Sistema de Calificación Demo
             </span>
             !
           </h3>
           <p className="text-gray-400 text-xl">
-            Experience how ExamAi guarantees fair and transparent grades for<br />
-            every student in Equatorial Guinea.
+            Experimenta cómo ExamAi garantiza calificaciones justas y transparentes<br />
+            para cada estudiante en Guinea Ecuatorial.
           </p>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Left Box */}
           <div className="flex-1 bg-[#222222] p-8 rounded-xl border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-6">Select a Class</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">Selecciona una Clase</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {Object.keys(exams).map((subject) => (
                 <button
@@ -133,12 +131,12 @@ const GradingDemo = () => {
 
             <div className="space-y-6">
               <div>
-                <h4 className="text-xl font-bold text-white mb-2">Question</h4>
+                <h4 className="text-xl font-bold text-white mb-2">Pregunta</h4>
                 <p className="text-white text-lg">{exams[activeSubject].question}</p>
               </div>
 
               <div>
-                <h4 className="text-xl font-bold text-white mb-2">Rubrics</h4>
+                <h4 className="text-xl font-bold text-white mb-2">Rúbricas</h4>
                 <ul className="list-disc list-inside text-white text-lg space-y-2">
                   {exams[activeSubject].rubrics.map((rubric, index) => (
                     <li key={index}>{rubric}</li>
@@ -147,11 +145,11 @@ const GradingDemo = () => {
               </div>
 
               <div>
-                <h4 className="text-xl font-bold text-white mb-2">Your Answer</h4>
+                <h4 className="text-xl font-bold text-white mb-2">Tu Respuesta</h4>
                 <textarea
                   value={answer}
                   onChange={(e) => setAnswer(e.target.value)}
-                  placeholder="Type your answer here"
+                  placeholder="Escribe tu respuesta aquí"
                   className="w-full h-24 bg-[#333333] text-white border border-[#555555] rounded-xl p-4 text-lg resize-none"
                 />
               </div>
@@ -160,7 +158,7 @@ const GradingDemo = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder="Ingresa tu correo electrónico"
                 className="w-full bg-[#333333] text-white border border-[#555555] rounded-xl p-4 text-lg"
               />
 
@@ -171,22 +169,21 @@ const GradingDemo = () => {
                   validateInputs() ? "bg-[#7e00e4] cursor-pointer" : "bg-[#444444] cursor-not-allowed"
                 }`}
               >
-                Submit answer
+                Enviar respuesta
               </button>
             </div>
           </div>
 
-          {/* Right Box */}
           <div className="flex-1 bg-[#222222] p-8 rounded-xl border border-white/10">
             <p className="text-gray-400 text-lg mb-8 text-center">
-              Get your answer back with detailed grading based on professor-defined rubrics and a score to match the assessment. See how our platform makes grading easy and fun!
+              Obtén tu respuesta de vuelta con calificación detallada basada en las rúbricas definidas por el profesor y un puntaje que coincida con la evaluación. Descubre cómo nuestro sistema de calificación hace que la calificación sea fácil y divertida!
             </p>
             <div className="bg-gradient-to-r from-[#f5a623] via-[#f77fbe] to-[#50e3c2] p-8 rounded-xl h-[400px] flex items-center justify-center">
               {isLoading ? (
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white" />
               ) : (
                 <p className="text-xl font-bold text-white whitespace-pre-line">
-                  {result || "Choose from one of the example classes below to experience how our AI-powered grading works."}
+                  {result || "Elige una de las clases de ejemplo a continuación para experimentar cómo funciona nuestro sistema de IA de calificación."}
                 </p>
               )}
             </div>

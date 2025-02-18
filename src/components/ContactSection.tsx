@@ -1,3 +1,4 @@
+
 import { Phone, MessageSquare, MapPin, Globe, ArrowRight, Clock, Users, School, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -26,9 +27,9 @@ const ContactSection = () => {
     <div className="relative py-24 px-4 overflow-hidden bg-gradient-to-b from-white via-green-50/30 to-white min-h-screen">
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-md opacity-70 animate-blob"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-md opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-md opacity-70 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -48,16 +49,13 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Stats Cards */}
+        {/* Stats Cards - Now in a single row */}
+        <div className="grid grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
             <div 
               key={stat.label}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-                gridColumn: index === 3 ? "2 / 3" : "auto"
-              }}
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-fade-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-gradient-to-br from-green-100 to-blue-100 rounded-lg">
@@ -166,15 +164,15 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="relative h-[calc(100vh-16rem)]">
+          <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-3xl transform -rotate-1"></div>
-            <div className="relative bg-white p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-100 h-full flex flex-col">
+            <div className="relative bg-white p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-100 h-full">
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Envíanos un mensaje</h3>
                 <p className="text-gray-500">Estamos aquí para ayudarte con cualquier pregunta sobre nuestra plataforma.</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6 flex-grow flex flex-col">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Nombre
@@ -205,7 +203,7 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <div className="flex-grow">
+                <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Mensaje
                   </label>
@@ -214,8 +212,9 @@ const ContactSection = () => {
                     name="message"
                     value={formState.message}
                     onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
-                    className="w-full h-full min-h-[200px] px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none" 
-                    placeholder="Tu mensaje"
+                    rows={6}
+                    placeholder="Tu mensaje" 
+                    className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none" 
                   />
                 </div>
 
@@ -226,7 +225,7 @@ const ContactSection = () => {
                   Enviar Mensaje
                 </Button>
 
-                <div className="p-4 bg-green-50 rounded-lg mt-auto">
+                <div className="mt-4 p-4 bg-green-50 rounded-lg">
                   <div className="flex items-center gap-2 text-sm text-green-700">
                     <Clock className="w-4 h-4" />
                     <span>Tiempo de respuesta promedio: 2-3 horas</span>

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,16 +45,11 @@
   }
 
   .card {
-    @apply bg-white/80 backdrop-blur-lg rounded-2xl border border-gray-100/20 shadow-lg transition-all duration-300 hover:shadow-xl;
+    @apply bg-white/80 backdrop-blur-md rounded-2xl border border-gray-100/20 shadow-lg transition-all duration-300 hover:shadow-xl;
   }
 
   .feature-icon {
     @apply w-10 h-10 rounded-full flex items-center justify-center text-primary;
-  }
-
-  .blur-xl {
-    --tw-blur: blur(12px);
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
 
   @keyframes blob {

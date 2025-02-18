@@ -1,5 +1,5 @@
 
-import { Phone, MessageSquare, Linkedin, MapPin, Globe, ArrowRight } from "lucide-react";
+import { Phone, MessageSquare, MapPin, Globe, ArrowRight, Clock, Users, School, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 
@@ -11,13 +11,20 @@ const ContactSection = () => {
     message: ""
   });
 
+  const stats = [
+    { icon: Users, label: "Estudiantes", value: "2,500+" },
+    { icon: School, label: "Instituciones", value: "15+" },
+    { icon: Clock, label: "Horas Ahorradas", value: "1,000+" },
+    { icon: CheckCircle, label: "Exámenes", value: "10,000+" },
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
   };
 
   return (
-    <div className="relative py-24 px-4 overflow-hidden bg-gradient-to-b from-white via-green-50/30 to-white">
+    <div className="relative py-24 px-4 overflow-hidden bg-gradient-to-b from-white via-green-50/30 to-white min-h-screen">
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -26,105 +33,146 @@ const ContactSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left Column */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2 text-sm text-green-600 bg-green-50 px-4 py-2 rounded-full">
-                <Globe className="w-4 h-4" />
-                <span>Malabo, Equatorial Guinea</span>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 text-sm text-green-600 bg-green-50 px-4 py-2 rounded-full mb-4">
+            <Globe className="w-4 h-4" />
+            <span>Malabo, Guinea Ecuatorial</span>
+          </div>
+          <h2 className="text-4xl font-bold leading-tight mb-4">
+            De Guinea, 
+            <span className="bg-gradient-to-r from-[#009A49] to-[#0072C6] bg-clip-text text-transparent">
+              {" "}Para Guinea
+            </span>
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Estamos orgullosos de lanzar la primera plataforma de calificación impulsada por IA en África, diseñada específicamente para las necesidades educativas de Guinea Ecuatorial.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {/* Stats Cards */}
+          {stats.map((stat, index) => (
+            <div 
+              key={stat.label}
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                gridColumn: index === 3 ? "2 / 3" : "auto"
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-gradient-to-br from-green-100 to-blue-100 rounded-lg">
+                  <stat.icon className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+                  <div className="text-sm text-gray-500">{stat.label}</div>
+                </div>
               </div>
-              <h2 className="text-4xl font-bold leading-tight">
-                De Guinea, 
-                <span className="bg-gradient-to-r from-[#009A49] to-[#0072C6] bg-clip-text text-transparent">
-                  {" "}Para Guinea
-                </span>
-              </h2>
-              <p className="text-gray-600 text-lg max-w-xl">
-                Estamos orgullosos de lanzar la primera plataforma de calificación impulsada por IA en África, diseñada específicamente para las necesidades educativas de Guinea Ecuatorial.
-              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Contact Cards */}
+          <div className="space-y-4">
+            {/* Demo Card */}
+            <div 
+              className={`p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
+                activeCard === 'demo' ? 'ring-2 ring-green-500 shadow-lg' : ''
+              }`}
+              onMouseEnter={() => setActiveCard('demo')}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gradient-to-br from-orange-100 to-red-100 rounded-lg">
+                  <Phone className="w-6 h-6 text-orange-500" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-gray-900">Solicita una Demo</h3>
+                    <ArrowRight className={`w-5 h-5 text-orange-500 transition-transform duration-300 ${
+                      activeCard === 'demo' ? 'translate-x-1' : ''
+                    }`} />
+                  </div>
+                  <p className="text-gray-500 mt-1">Programa una demostración personalizada para tu institución educativa</p>
+                </div>
+              </div>
             </div>
 
-            {/* Contact Cards */}
-            <div className="grid gap-4">
-              {/* Demo Card */}
-              <div 
-                className={`p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
-                  activeCard === 'demo' ? 'ring-2 ring-green-500 shadow-lg' : ''
-                }`}
-                onMouseEnter={() => setActiveCard('demo')}
-                onMouseLeave={() => setActiveCard(null)}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-orange-100 to-red-100 rounded-lg group-hover:scale-110 transition-transform">
-                    <Phone className="w-6 h-6 text-orange-500" />
+            {/* Email Card */}
+            <div 
+              className={`p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
+                activeCard === 'email' ? 'ring-2 ring-green-500 shadow-lg' : ''
+              }`}
+              onMouseEnter={() => setActiveCard('email')}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg">
+                  <MessageSquare className="w-6 h-6 text-green-500" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-gray-900">Contáctanos</h3>
+                    <ArrowRight className={`w-5 h-5 text-green-500 transition-transform duration-300 ${
+                      activeCard === 'email' ? 'translate-x-1' : ''
+                    }`} />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-semibold text-gray-900">Solicita una Demo</h3>
-                      <ArrowRight className={`w-5 h-5 text-orange-500 transition-transform duration-300 ${
-                        activeCard === 'demo' ? 'translate-x-1' : ''
-                      }`} />
-                    </div>
-                    <p className="text-gray-500 mt-1">Programa una demostración personalizada para tu institución educativa</p>
-                  </div>
+                  <p className="text-gray-500 mt-1">hello@examai.ai</p>
                 </div>
               </div>
+            </div>
 
-              {/* Email Card */}
-              <div 
-                className={`p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
-                  activeCard === 'email' ? 'ring-2 ring-green-500 shadow-lg' : ''
-                }`}
-                onMouseEnter={() => setActiveCard('email')}
-                onMouseLeave={() => setActiveCard(null)}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg group-hover:scale-110 transition-transform">
-                    <MessageSquare className="w-6 h-6 text-green-500" />
+            {/* Location Card */}
+            <div 
+              className={`p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
+                activeCard === 'location' ? 'ring-2 ring-green-500 shadow-lg' : ''
+              }`}
+              onMouseEnter={() => setActiveCard('location')}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg">
+                  <MapPin className="w-6 h-6 text-blue-500" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-gray-900">Visítanos</h3>
+                    <ArrowRight className={`w-5 h-5 text-blue-500 transition-transform duration-300 ${
+                      activeCard === 'location' ? 'translate-x-1' : ''
+                    }`} />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-semibold text-gray-900">Contáctanos</h3>
-                      <ArrowRight className={`w-5 h-5 text-green-500 transition-transform duration-300 ${
-                        activeCard === 'email' ? 'translate-x-1' : ''
-                      }`} />
-                    </div>
-                    <p className="text-gray-500 mt-1">hello@examai.ai</p>
-                  </div>
+                  <p className="text-gray-500 mt-1">Malabo, Bioko Norte, Guinea Ecuatorial</p>
                 </div>
               </div>
+            </div>
 
-              {/* Location Card */}
-              <div 
-                className={`p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer ${
-                  activeCard === 'location' ? 'ring-2 ring-green-500 shadow-lg' : ''
-                }`}
-                onMouseEnter={() => setActiveCard('location')}
-                onMouseLeave={() => setActiveCard(null)}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg group-hover:scale-110 transition-transform">
-                    <MapPin className="w-6 h-6 text-blue-500" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-semibold text-gray-900">Visítanos</h3>
-                      <ArrowRight className={`w-5 h-5 text-blue-500 transition-transform duration-300 ${
-                        activeCard === 'location' ? 'translate-x-1' : ''
-                      }`} />
-                    </div>
-                    <p className="text-gray-500 mt-1">Malabo, Bioko Norte, Guinea Ecuatorial</p>
-                  </div>
+            {/* Image with overlay */}
+            <div className="relative h-48 rounded-xl overflow-hidden mt-8">
+              <img 
+                src="/placeholder.svg" 
+                alt="Malabo" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                <div className="text-white">
+                  <h4 className="text-lg font-semibold">Malabo, Guinea Ecuatorial</h4>
+                  <p className="text-sm text-gray-200">La primera plataforma de calificación AI en África</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
+          {/* Contact Form */}
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-3xl transform -rotate-1"></div>
             <div className="relative bg-white p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-100">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Envíanos un mensaje</h3>
+                <p className="text-gray-500">Estamos aquí para ayudarte con cualquier pregunta sobre nuestra plataforma.</p>
+              </div>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -178,6 +226,13 @@ const ContactSection = () => {
                   Enviar Mensaje
                 </Button>
               </form>
+
+              <div className="mt-6 p-4 bg-green-50 rounded-lg">
+                <div className="flex items-center gap-2 text-sm text-green-700">
+                  <Clock className="w-4 h-4" />
+                  <span>Tiempo de respuesta promedio: 2-3 horas</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

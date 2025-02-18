@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,17 +53,21 @@
   }
 
   .gradient-blob {
-    @apply absolute rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-blob;
+    position: absolute;
+    border-radius: 9999px;
+    mix-blend-mode: multiply;
+    filter: blur(80px);
+    opacity: 0.2;
     animation: blob-bounce 7s infinite;
   }
 
   .gradient-blob-1 {
-    @apply gradient-blob;
+    composes: gradient-blob;
     animation-delay: 0s;
   }
 
   .gradient-blob-2 {
-    @apply gradient-blob;
+    composes: gradient-blob;
     animation-delay: 2s;
   }
 

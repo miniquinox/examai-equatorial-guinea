@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, ReactElement } from "react";
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import { Button } from "./ui/button";
 import { BookOpen, User2, FileCheck, BadgeCheck, ChartBar, BrainCircuit } from "lucide-react";
@@ -14,8 +15,11 @@ const mockChartData = [
 interface CardPreview {
   title: string;
   description: string;
-  preview: React.ReactNode;
+  preview: ReactElement;
 }
+
+const StudentCard = ({ preview }: { preview: ReactElement }) => preview;
+const ProfessorCard = ({ preview }: { preview: ReactElement }) => preview;
 
 const BenefitsSection = () => {
   const [activePortal, setActivePortal] = useState<"professor" | "student">("professor");
@@ -433,7 +437,11 @@ const BenefitsSection = () => {
             >
               <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
               <p className="text-gray-600 mb-4">{card.description}</p>
-              {card.preview}
+              {activePortal === "professor" ? (
+                <ProfessorCard preview={card.preview} />
+              ) : (
+                <StudentCard preview={card.preview} />
+              )}
             </div>
           ))}
         </div>

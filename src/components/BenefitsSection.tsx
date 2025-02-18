@@ -1,7 +1,6 @@
-
 /** @jsxImportSource react */
 
-import React, { useState, ReactElement } from "react";
+import React, { useState, type ReactElement } from "react";
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import { Button } from "./ui/button";
 import { BookOpen, User2, FileCheck, BadgeCheck, ChartBar, BrainCircuit } from "lucide-react";
@@ -25,6 +24,21 @@ const ProfessorCard: React.FC<{ preview: React.ReactNode }> = ({ preview }) => <
 
 const BenefitsSection: React.FC = () => {
   const [activePortal, setActivePortal] = useState<"professor" | "student">("professor");
+
+  const getButtonClass = (type: "professor" | "student"): string => {
+    const baseClass = "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300";
+    const activeClass = "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white";
+    const inactiveClass = "text-gray-700";
+    
+    return `${baseClass} ${activePortal === type ? activeClass : inactiveClass}`;
+  };
+
+  const getCardClass = (index: number): string => {
+    const baseClass = "card p-6 hover:scale-105 transform transition-all duration-300 animate-fade-up";
+    const spanClass = index >= 3 ? "lg:col-span-3/2" : "";
+    
+    return `${baseClass} ${spanClass}`;
+  };
 
   const professorCards: CardPreview[] = [
     {
@@ -385,21 +399,6 @@ const BenefitsSection: React.FC = () => {
   ];
 
   const currentCards = activePortal === "professor" ? professorCards : studentCards;
-
-  const getButtonClass = (type: "professor" | "student"): string => {
-    const baseClass = "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300";
-    const activeClass = "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white";
-    const inactiveClass = "text-gray-700";
-    
-    return `${baseClass} ${activePortal === type ? activeClass : inactiveClass}`;
-  };
-
-  const getCardClass = (index: number): string => {
-    const baseClass = "card p-6 hover:scale-105 transform transition-all duration-300 animate-fade-up";
-    const spanClass = index >= 3 ? "lg:col-span-3/2" : "";
-    
-    return `${baseClass} ${spanClass}`;
-  };
 
   return (
     <div className="py-16 px-4 bg-white">

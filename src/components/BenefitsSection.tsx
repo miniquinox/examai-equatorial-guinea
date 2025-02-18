@@ -1,4 +1,3 @@
-
 /** @jsxImportSource react */
 
 import React, { useState } from "react";
@@ -398,7 +397,7 @@ const studentCards: CardData[] = [
   },
 ];
 
-const BenefitsSection: React.FC = () => {
+const BenefitsSection = () => {
   const [activePortal, setActivePortal] = useState<"professor" | "student">("professor");
 
   const getButtonClass = (type: "professor" | "student"): string => {
@@ -417,8 +416,16 @@ const BenefitsSection: React.FC = () => {
   const currentCards = activePortal === "professor" ? professorCards : studentCards;
 
   return (
-    <div className="py-16 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative py-16 px-4 bg-white overflow-hidden">
+      <div 
+        className="gradient-blob-1 w-[700px] h-[700px] -bottom-40 -left-20 bg-[#E5DEFF]"
+        style={{ transform: 'rotate(-60deg)' }}
+      />
+      <div 
+        className="gradient-blob-2 w-[600px] h-[600px] -top-40 right-1/4 bg-[#FEC6A1]"
+        style={{ transform: 'rotate(45deg)' }}
+      />
+      <div className="max-w-7xl mx-auto relative">
         <div className="flex justify-center mb-12">
           <div className="inline-flex rounded-full p-1 bg-gray-100">
             <button

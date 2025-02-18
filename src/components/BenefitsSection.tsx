@@ -21,7 +21,7 @@ interface CardPreview {
 const StudentCard = ({ preview }: { preview: ReactElement }) => preview;
 const ProfessorCard = ({ preview }: { preview: ReactElement }) => preview;
 
-const BenefitsSection = () => {
+const BenefitsSection: React.FC = () => {
   const [activePortal, setActivePortal] = useState<"professor" | "student">("professor");
 
   const professorCards: CardPreview[] = [
@@ -384,6 +384,21 @@ const BenefitsSection = () => {
 
   const currentCards = activePortal === "professor" ? professorCards : studentCards;
 
+  const getButtonClass = (type: "professor" | "student") => {
+    const baseClass = "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300";
+    const activeClass = "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white";
+    const inactiveClass = "text-gray-700";
+    
+    return `${baseClass} ${activePortal === type ? activeClass : inactiveClass}`;
+  };
+
+  const getCardClass = (index: number) => {
+    const baseClass = "card p-6 hover:scale-105 transform transition-all duration-300 animate-fade-up";
+    const spanClass = index >= 3 ? "lg:col-span-3/2" : "";
+    
+    return `${baseClass} ${spanClass}`;
+  };
+
   return (
     <div className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -391,21 +406,13 @@ const BenefitsSection = () => {
           <div className="inline-flex rounded-full p-1 bg-gray-100">
             <button
               onClick={() => setActivePortal("professor")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activePortal === "professor"
-                  ? "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white"
-                  : "text-gray-700"
-              }`}
+              className={getButtonClass("professor")}
             >
               Profesores
             </button>
             <button
               onClick={() => setActivePortal("student")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activePortal === "student"
-                  ? "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white"
-                  : "text-gray-700"
-              }`}
+              className={getButtonClass("student")}
             >
               Estudiantes
             </button>
@@ -430,9 +437,7 @@ const BenefitsSection = () => {
           {currentCards.map((card: CardPreview, index: number) => (
             <div
               key={card.title}
-              className={`card p-6 hover:scale-105 transform transition-all duration-300 animate-fade-up ${
-                index >= 3 ? "lg:col-span-3/2" : ""
-              }`}
+              className={getCardClass(index)}
               style={{ animationDelay: `${0.1 * index}s` }}
             >
               <h3 className="text-xl font-semibold mb-3">{card.title}</h3>

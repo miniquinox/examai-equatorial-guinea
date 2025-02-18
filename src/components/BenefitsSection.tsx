@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import { Button } from "./ui/button";
 import { BookOpen, User2, FileCheck, BadgeCheck, ChartBar, BrainCircuit } from "lucide-react";
@@ -12,10 +11,16 @@ const mockChartData = [
   { name: "May", value: 75 },
 ];
 
+interface CardPreview {
+  title: string;
+  description: string;
+  preview: React.ReactNode;
+}
+
 const BenefitsSection = () => {
   const [activePortal, setActivePortal] = useState<"professor" | "student">("professor");
 
-  const professorCards = [
+  const professorCards: CardPreview[] = [
     {
       title: "Resultados Rápidos y Precisos",
       description: "Asegurando que los estudiantes reciban calificaciones correctas sin demoras.",
@@ -180,7 +185,7 @@ const BenefitsSection = () => {
     },
   ];
 
-  const studentCards = [
+  const studentCards: CardPreview[] = [
     {
       title: "Retroalimentación Instantánea para el Aprendizaje",
       description: "Los estudios demuestran que la retroalimentación rápida ayuda a los estudiantes a aprender más rápido y retener más.",
@@ -378,7 +383,6 @@ const BenefitsSection = () => {
   return (
     <div className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Toggle */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex rounded-full p-1 bg-gray-100">
             <button
@@ -404,7 +408,6 @@ const BenefitsSection = () => {
           </div>
         </div>
 
-        {/* Title and Description */}
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl font-bold mb-4">
             Beneficios del Portal de{" "}
@@ -419,9 +422,8 @@ const BenefitsSection = () => {
           </p>
         </div>
 
-        {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentCards.map((card, index) => (
+          {currentCards.map((card: CardPreview, index: number) => (
             <div
               key={card.title}
               className={`card p-6 hover:scale-105 transform transition-all duration-300 animate-fade-up ${

@@ -384,7 +384,7 @@ const BenefitsSection: React.FC = () => {
 
   const currentCards = activePortal === "professor" ? professorCards : studentCards;
 
-  const getButtonClass = (type: "professor" | "student") => {
+  const getButtonClass = (type: "professor" | "student"): string => {
     const baseClass = "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300";
     const activeClass = "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white";
     const inactiveClass = "text-gray-700";
@@ -392,7 +392,7 @@ const BenefitsSection: React.FC = () => {
     return `${baseClass} ${activePortal === type ? activeClass : inactiveClass}`;
   };
 
-  const getCardClass = (index: number) => {
+  const getCardClass = (index: number): string => {
     const baseClass = "card p-6 hover:scale-105 transform transition-all duration-300 animate-fade-up";
     const spanClass = index >= 3 ? "lg:col-span-3/2" : "";
     

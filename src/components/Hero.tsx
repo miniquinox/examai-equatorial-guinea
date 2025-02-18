@@ -13,30 +13,27 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-          <div className="card p-4 animate-fade-up h-[400px]" style={{ animationDelay: "0.2s" }}>
-            <img 
-              src="/lovable-uploads/3ad9e7b5-5d92-4213-a910-77c7a30b0539.png" 
-              alt="Panel del Profesor"
-              className="w-full h-full object-contain"
-            />
-          </div>
+        <div className="flex flex-col md:flex-row gap-8 items-center justify-center px-4">
+          <img 
+            src="/lovable-uploads/3ad9e7b5-5d92-4213-a910-77c7a30b0539.png" 
+            alt="Panel del Profesor"
+            className="rounded-2xl h-[400px] w-auto object-contain animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          />
 
-          <div className="card p-4 animate-fade-up h-[400px]" style={{ animationDelay: "0.4s" }}>
-            <img 
-              src="/lovable-uploads/2de7be32-873b-4bc9-9093-887c0cb3991f.png" 
-              alt="Examen de Matemáticas"
-              className="w-full h-full object-contain"
-            />
-          </div>
+          <img 
+            src="/lovable-uploads/2de7be32-873b-4bc9-9093-887c0cb3991f.png" 
+            alt="Examen de Matemáticas"
+            className="rounded-2xl h-[400px] w-auto object-contain animate-fade-up"
+            style={{ animationDelay: "0.4s" }}
+          />
 
-          <div className="card p-4 animate-fade-up h-[400px]" style={{ animationDelay: "0.6s" }}>
-            <img 
-              src="/lovable-uploads/1c92cfac-5d13-41ec-92fd-cef745a64cf0.png" 
-              alt="Tus Estudiantes"
-              className="w-full h-full object-contain"
-            />
-          </div>
+          <img 
+            src="/lovable-uploads/1c92cfac-5d13-41ec-92fd-cef745a64cf0.png" 
+            alt="Tus Estudiantes"
+            className="rounded-2xl h-[400px] w-auto object-contain animate-fade-up"
+            style={{ animationDelay: "0.6s" }}
+          />
         </div>
       </div>
     </div>

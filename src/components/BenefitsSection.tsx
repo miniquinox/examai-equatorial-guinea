@@ -1,3 +1,4 @@
+
 /** @jsxImportSource react */
 
 import React, { useState } from "react";
@@ -243,11 +244,11 @@ const AnalisisCard = () => (
       <div className="font-mono text-sm space-y-2">
         <div className="bg-gray-800 p-4 rounded-lg">
           <div className="space-y-1">
-            <div className="text-blue-400">function calculateArea() {</div>
-            <div className="pl-4 text-green-400">let width = 10;</div>
-            <div className="pl-4 text-green-400">let height = 5;</div>
-            <div className="pl-4 text-orange-400">return width * height;</div>
-            <div className="text-blue-400">}</div>
+            <div className="text-blue-400">{'function calculateArea() {'}</div>
+            <div className="pl-4 text-green-400">{'let width = 10;'}</div>
+            <div className="pl-4 text-green-400">{'let height = 5;'}</div>
+            <div className="pl-4 text-orange-400">{'return width * height;'}</div>
+            <div className="text-blue-400">{'}'}</div>
           </div>
         </div>
         <div className="bg-blue-900/20 p-3 rounded-lg text-blue-300">

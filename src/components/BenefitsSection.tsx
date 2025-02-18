@@ -56,11 +56,10 @@ const BenefitsSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {(activePortal === "professor" ? professorCards : studentCards).map((card, index) => {
             const CardComponent = card.Component;
-            const isLastCard = index === 4;
             return (
               <div
                 key={card.title}
-                className={`${isLastCard ? "lg:col-span-1" : index === 3 ? "lg:col-span-2" : ""} h-full animate-fade-up`}
+                className={`${index === 3 ? "lg:col-span-2" : ""} h-full animate-fade-up`}
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
                 <CardComponent />

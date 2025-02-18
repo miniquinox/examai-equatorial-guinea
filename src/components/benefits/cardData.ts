@@ -3,6 +3,7 @@ import { ResultadosCard } from "./ResultadosCard";
 import { CalificacionCard } from "./CalificacionCard";
 import { ControlCard } from "./ControlCard";
 import { ConfianzaCard } from "./ConfianzaCard";
+import { DemoCard } from "./DemoCard";
 
 export const professorCards = [
   {
@@ -25,6 +26,11 @@ export const professorCards = [
     description: "Los estudiantes confían en sus calificaciones, inspirando un mejor rendimiento académico.",
     Component: ConfianzaCard,
   },
+  {
+    title: "Demo Examen en Minutos",
+    description: "Crea exámenes de práctica con un solo clic para que tus estudiantes se preparen mejor.",
+    Component: DemoCard,
+  }
 ];
 
 export const studentCards = [
@@ -48,4 +54,9 @@ export const studentCards = [
     description: "Accede al portal de análisis para ver el rendimiento de la clase, entender dónde te encuentras y mantenerte motivado para seguir el ritmo de tus compañeros.",
     Component: ConfianzaCard,
   },
+  {
+    title: "Práctica Ilimitada",
+    description: "Accede a exámenes de práctica generados por IA para mejorar tu comprensión y confianza.",
+    Component: DemoCard,
+  }
 ];

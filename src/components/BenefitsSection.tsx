@@ -115,9 +115,9 @@ const BenefitsSection = () => {
       preview: (
         <div className="p-4 bg-gray-900 text-gray-300 rounded-lg font-mono text-sm">
           <div className="space-y-1">
-            <div className="text-blue-400">function calculate() {</div>
-            <div className="pl-4 text-green-400">return result;</div>
-            <div>}</div>
+            <div className="text-blue-400">{`function calculate() {`}</div>
+            <div className="pl-4 text-green-400">{`return result;`}</div>
+            <div>{`}`}</div>
           </div>
         </div>
       ),
@@ -224,3 +224,4 @@ const BenefitsSection = () => {
 };
 
 export default BenefitsSection;
+

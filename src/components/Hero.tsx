@@ -1,15 +1,8 @@
+
 const Hero = () => {
   return (
-    <div className="relative pt-24 pb-16 px-4 overflow-hidden">
-      <div 
-        className="gradient-blob-1 w-[500px] h-[500px] -bottom-32 -left-12 bg-[#E5DEFF]"
-        style={{ transform: 'rotate(-120deg)' }}
-      />
-      <div 
-        className="gradient-blob-2 w-[400px] h-[400px] -top-20 right-0 bg-[#FDE1D3]"
-        style={{ transform: 'rotate(60deg)' }}
-      />
-      <div className="max-w-7xl mx-auto relative">
+    <div className="pt-24 pb-16 px-4">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h1 className="text-5xl font-bold mb-6">
             Llevando una Calificación Justa, Inteligente y Transparente a{" "}

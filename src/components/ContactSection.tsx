@@ -1,17 +1,10 @@
+
 import { Phone, MessageSquare, Linkedin } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <div className="relative py-20 px-4 bg-white overflow-hidden">
-      <div 
-        className="gradient-blob-1 w-[700px] h-[700px] -bottom-40 -left-20 bg-[#D3E4FD]"
-        style={{ transform: 'rotate(-90deg)' }}
-      />
-      <div 
-        className="gradient-blob-2 w-[600px] h-[600px] -top-32 right-0 bg-[#FFDEE2]"
-        style={{ transform: 'rotate(30deg)' }}
-      />
-      <div className="max-w-7xl mx-auto relative">
+    <div className="py-20 px-4 bg-white">
+      <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Column */}
           <div className="space-y-8">

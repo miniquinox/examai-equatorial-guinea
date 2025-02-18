@@ -1,3 +1,4 @@
+
 import { 
   Pencil, MessageSquare, Database, CheckSquare, Brain, Edit3
 } from "lucide-react";
@@ -43,16 +44,8 @@ const Features = () => {
   ];
 
   return (
-    <div className="relative py-16 px-4 bg-gray-50 overflow-hidden">
-      <div 
-        className="gradient-blob-1 w-[600px] h-[600px] -bottom-40 left-1/2 -translate-x-1/2 bg-[#D3E4FD]"
-        style={{ transform: 'rotate(-45deg)' }}
-      />
-      <div 
-        className="gradient-blob-2 w-[500px] h-[500px] -top-32 right-0 bg-[#FFDEE2]"
-        style={{ transform: 'rotate(30deg)' }}
-      />
-      <div className="max-w-7xl mx-auto relative">
+    <div className="py-16 px-4 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl font-bold mb-4">Descubre Nuestras Funciones</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">

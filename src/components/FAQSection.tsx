@@ -1,3 +1,4 @@
+
 import { X } from "lucide-react";
 
 const FAQSection = () => {
@@ -49,16 +50,8 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="relative py-20 px-4 bg-white overflow-hidden">
-      <div 
-        className="gradient-blob-1 w-[600px] h-[600px] bottom-0 left-1/2 -translate-x-1/2 bg-[#D3E4FD]"
-        style={{ transform: 'rotate(-30deg)' }}
-      />
-      <div 
-        className="gradient-blob-2 w-[500px] h-[500px] -top-20 right-0 bg-[#FDE1D3]"
-        style={{ transform: 'rotate(60deg)' }}
-      />
-      <div className="max-w-7xl mx-auto relative">
+    <div className="py-20 px-4 bg-white">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-16">
           Preguntas frecuentes
         </h2>

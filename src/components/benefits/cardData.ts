@@ -4,6 +4,11 @@ import { CalificacionCard } from "./CalificacionCard";
 import { ControlCard } from "./ControlCard";
 import { ConfianzaCard } from "./ConfianzaCard";
 import { DemoCard } from "./DemoCard";
+import { RealTimeCard } from "./student/RealTimeCard";
+import { FeedbackCard } from "./student/FeedbackCard";
+import { ProgrammingCard } from "./student/ProgrammingCard";
+import { ProgressCard } from "./student/ProgressCard";
+import { DifficultCard } from "./student/DifficultCard";
 
 export const professorCards = [
   {
@@ -35,28 +40,28 @@ export const professorCards = [
 
 export const studentCards = [
   {
-    title: "Retroalimentación Instantánea para el Aprendizaje",
-    description: "Los estudios demuestran que la retroalimentación rápida ayuda a los estudiantes a aprender más rápido y retener más.",
-    Component: ResultadosCard,
+    title: "Corrección en Tiempo Real",
+    description: "Recibe retroalimentación instantánea mientras resuelves los problemas.",
+    Component: RealTimeCard,
   },
   {
-    title: "Desglose Detallado de Problemas",
-    description: "Nuestra IA explica exactamente dónde te equivocaste, ayudándote a entender tus errores.",
-    Component: CalificacionCard,
+    title: "Feedback Detallado en Cada Paso",
+    description: "Entiende exactamente dónde te equivocaste y cómo mejorar.",
+    Component: FeedbackCard,
   },
   {
-    title: "Análisis Paso a Paso",
-    description: "Para materias difíciles como física o programación, la IA desglosa cada paso y señala los errores.",
-    Component: ControlCard,
+    title: "Análisis Paso a Paso en Programación",
+    description: "Visualiza y comprende cada línea de código con explicaciones detalladas.",
+    Component: ProgrammingCard,
   },
   {
     title: "Seguimiento de Tu Progreso",
-    description: "Accede al portal de análisis para ver el rendimiento de la clase, entender dónde te encuentras y mantenerte motivado para seguir el ritmo de tus compañeros.",
-    Component: ConfianzaCard,
+    description: "Monitorea tu evolución y mantente motivado con estadísticas en tiempo real.",
+    Component: ProgressCard,
   },
   {
-    title: "Práctica Ilimitada",
-    description: "Accede a exámenes de práctica generados por IA para mejorar tu comprensión y confianza.",
-    Component: DemoCard,
+    title: "Identifica Temas Difíciles",
+    description: "Descubre qué áreas necesitan más atención y recibe ayuda personalizada.",
+    Component: DifficultCard,
   }
 ];

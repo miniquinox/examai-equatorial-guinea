@@ -1,4 +1,3 @@
-
 /** @jsxImportSource react */
 
 import React, { useState } from "react";
@@ -21,31 +20,31 @@ interface CardData {
 }
 
 const ResultadosCard = () => (
-  <div className="p-6 bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-inner">
-    <div className="space-y-4">
+  <div className="h-full p-6 bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+    <div className="space-y-4 h-full flex flex-col">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-purple-100 rounded-lg">
+          <div className="p-2 bg-purple-100 rounded-lg group-hover:scale-110 transition-transform">
             <FileCheck className="w-5 h-5 text-purple-600" />
           </div>
           <span className="font-medium text-gray-700">Iniciar Calificación</span>
         </div>
-        <span className="text-sm text-purple-600 bg-purple-100 px-3 py-1 rounded-full">
+        <span className="text-sm text-purple-600 bg-purple-100 px-3 py-1 rounded-full group-hover:bg-purple-200 transition-colors">
           En Progreso
         </span>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-3 flex-grow">
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-          <div className="h-full w-3/4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" />
+          <div className="h-full w-3/4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full group-hover:animate-pulse" />
         </div>
         <div className="flex justify-between text-sm text-gray-500">
-          <span>75% Completado</span>
-          <span>45/60 Exámenes</span>
+          <span className="group-hover:text-purple-600 transition-colors">75% Completado</span>
+          <span className="group-hover:text-blue-600 transition-colors">45/60 Exámenes</span>
         </div>
       </div>
-      <div className="flex gap-3">
-        <Button variant="outline" className="flex-1">Cancelar</Button>
-        <Button className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600">Continuar</Button>
+      <div className="flex gap-3 mt-auto">
+        <Button variant="outline" className="flex-1 group-hover:bg-purple-50 transition-colors">Cancelar</Button>
+        <Button className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-500 group-hover:to-blue-500">Continuar</Button>
       </div>
     </div>
   </div>
@@ -261,20 +260,25 @@ const AnalisisCard = () => (
 );
 
 const SeguimientoCard = () => (
-  <div className="p-6 bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl shadow-inner">
-    <div className="space-y-4">
+  <div className="h-full p-6 bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+    <div className="h-full flex flex-col space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-violet-100 rounded-lg">
+          <div className="p-2 bg-violet-100 rounded-lg group-hover:scale-110 transition-transform">
             <ChartBar className="w-5 h-5 text-violet-600" />
           </div>
           <span className="font-medium text-gray-700">Progreso del Estudiante</span>
         </div>
       </div>
-      <div className="h-40">
+      <div className="h-40 flex-grow">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={mockChartData}>
-            <Bar dataKey="value" fill="url(#gradientBar)" radius={[4, 4, 0, 0]} />
+            <Bar 
+              dataKey="value" 
+              fill="url(#gradientBar)" 
+              radius={[4, 4, 0, 0]} 
+              className="group-hover:animate-pulse"
+            />
             <defs>
               <linearGradient id="gradientBar" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#8b5cf6" />
@@ -285,16 +289,16 @@ const SeguimientoCard = () => (
         </ResponsiveContainer>
       </div>
       <div className="grid grid-cols-3 gap-3">
-        <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-          <div className="text-2xl font-bold text-violet-600">85%</div>
+        <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-violet-50 transition-all">
+          <div className="text-2xl font-bold text-violet-600 group-hover:scale-110 transition-transform">85%</div>
           <div className="text-xs text-gray-500">Promedio</div>
         </div>
-        <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-          <div className="text-2xl font-bold text-purple-600">92%</div>
+        <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-violet-50 transition-all">
+          <div className="text-2xl font-bold text-purple-600 group-hover:scale-110 transition-transform">92%</div>
           <div className="text-xs text-gray-500">Mejor Nota</div>
         </div>
-        <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-          <div className="text-2xl font-bold text-indigo-600">+15%</div>
+        <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-violet-50 transition-all">
+          <div className="text-2xl font-bold text-indigo-600 group-hover:scale-110 transition-transform">+15%</div>
           <div className="text-xs text-gray-500">Mejora</div>
         </div>
       </div>
@@ -303,36 +307,36 @@ const SeguimientoCard = () => (
 );
 
 const PreguntasCard = () => (
-  <div className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl shadow-inner">
-    <div className="space-y-4">
+  <div className="h-full col-span-2 p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+    <div className="h-full flex flex-col space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-amber-100 rounded-lg">
+          <div className="p-2 bg-amber-100 rounded-lg group-hover:scale-110 transition-transform">
             <BrainCircuit className="w-5 h-5 text-amber-600" />
           </div>
           <span className="font-medium text-gray-700">Análisis de Dificultad</span>
         </div>
       </div>
-      <div className="space-y-3">
-        <div className="bg-white p-4 rounded-lg shadow-sm">
+      <div className="space-y-3 flex-grow">
+        <div className="bg-white p-4 rounded-lg shadow-sm group-hover:bg-amber-50/50 transition-all">
           <h4 className="font-medium text-gray-700 mb-3">Preguntas más Desafiantes:</h4>
-          <div className="space-y-2">
+          <div className="space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Integración por partes</span>
               <div className="flex items-center space-x-2">
                 <div className="h-2 w-24 bg-gray-100 rounded-full overflow-hidden">
-                  <div className="h-full w-3/4 bg-gradient-to-r from-amber-500 to-orange-500" />
+                  <div className="h-full w-3/4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full group-hover:animate-pulse" />
                 </div>
-                <span className="text-sm text-orange-600">75%</span>
+                <span className="text-sm text-orange-600 group-hover:scale-110 transition-transform">75%</span>
               </div>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Árboles binarios</span>
               <div className="flex items-center space-x-2">
                 <div className="h-2 w-24 bg-gray-100 rounded-full overflow-hidden">
-                  <div className="h-full w-2/3 bg-gradient-to-r from-amber-500 to-orange-500" />
+                  <div className="h-full w-2/3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full group-hover:animate-pulse" />
                 </div>
-                <span className="text-sm text-orange-600">66%</span>
+                <span className="text-sm text-orange-600 group-hover:scale-110 transition-transform">66%</span>
               </div>
             </div>
           </div>
@@ -401,35 +405,34 @@ const studentCards: CardData[] = [
 const BenefitsSection: React.FC = () => {
   const [activePortal, setActivePortal] = useState<"professor" | "student">("professor");
 
-  const getButtonClass = (type: "professor" | "student"): string => {
-    const baseClass = "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300";
-    const activeClass = "bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] text-white";
-    const inactiveClass = "text-gray-700";
-    return `${baseClass} ${activePortal === type ? activeClass : inactiveClass}`;
-  };
-
-  const getCardClass = (index: number): string => {
-    const baseClass = "card p-6 hover:scale-105 transform transition-all duration-300 animate-fade-up";
-    const spanClass = index >= 3 ? "lg:col-span-3/2" : "";
-    return `${baseClass} ${spanClass}`;
-  };
-
-  const currentCards = activePortal === "professor" ? professorCards : studentCards;
-
   return (
-    <div className="py-16 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative py-16 px-4 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex justify-center mb-12">
-          <div className="inline-flex rounded-full p-1 bg-gray-100">
+          <div className="inline-flex rounded-full p-1 bg-white/30 backdrop-blur-lg shadow-lg">
             <button
               onClick={() => setActivePortal("professor")}
-              className={getButtonClass("professor")}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activePortal === "professor"
+                ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
+                : "text-gray-700 hover:text-gray-900"
+              }`}
             >
               Profesores
             </button>
             <button
               onClick={() => setActivePortal("student")}
-              className={getButtonClass("student")}
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activePortal === "student"
+                ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
+                : "text-gray-700 hover:text-gray-900"
+              }`}
             >
               Estudiantes
             </button>
@@ -439,7 +442,7 @@ const BenefitsSection: React.FC = () => {
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl font-bold mb-4">
             Beneficios del Portal de{" "}
-            <span className="gradient-text">
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               {activePortal === "professor" ? "Profesores" : "Estudiantes"}
             </span>
           </h2>
@@ -451,16 +454,14 @@ const BenefitsSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentCards.map((card, index) => {
+          {(activePortal === "professor" ? professorCards : studentCards).map((card, index) => {
             const CardComponent = card.Component;
             return (
               <div
                 key={card.title}
-                className={getCardClass(index)}
+                className={`${index >= 3 ? "lg:col-span-2" : ""} h-full animate-fade-up`}
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
-                <h3 className="text-xl font-semibold mb-3">{card.title}</h3>
-                <p className="text-gray-600 mb-4">{card.description}</p>
                 <CardComponent />
               </div>
             );

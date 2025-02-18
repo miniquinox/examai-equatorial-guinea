@@ -1,9 +1,6 @@
-
 import { Phone, MessageSquare, Linkedin } from "lucide-react";
-
 const ContactSection = () => {
-  return (
-    <div className="py-20 px-4 bg-white">
+  return <div className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Column */}
@@ -44,7 +41,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900">Envíanos un Email (Equipo de Guinea Ecuatorial)</h3>
-                    <p className="text-gray-500">hola@examai.ai</p>
+                    <p className="text-gray-500">hello@examai.ai</p>
                   </div>
                 </div>
               </div>
@@ -71,53 +68,30 @@ const ContactSection = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Nombre
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Juan Pérez"
-                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow"
-                />
+                <input type="text" id="name" name="name" placeholder="Juan Pérez" className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow" />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="ejemplo@correo.com"
-                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow"
-                />
+                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow" />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Mensaje
                 </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  placeholder="Tu mensaje"
-                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none"
-                />
+                <textarea id="message" name="message" rows={4} placeholder="Tu mensaje" className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none" />
               </div>
 
-              <button
-                type="submit"
-                className="w-full py-3 px-6 bg-gradient-to-r from-[#009A49] to-[#0072C6] hover:from-[#008A39] hover:to-[#0062B6] text-white font-semibold rounded-lg transition-colors"
-              >
+              <button type="submit" className="w-full py-3 px-6 bg-gradient-to-r from-[#009A49] to-[#0072C6] hover:from-[#008A39] hover:to-[#0062B6] text-white font-semibold rounded-lg transition-colors">
                 Enviar
               </button>
             </form>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactSection;

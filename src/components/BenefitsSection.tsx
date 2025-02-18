@@ -1,4 +1,6 @@
 
+/** @jsxImportSource react */
+
 import React, { useState, ReactElement } from "react";
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import { Button } from "./ui/button";
@@ -15,11 +17,11 @@ const mockChartData = [
 interface CardPreview {
   title: string;
   description: string;
-  preview: ReactElement;
+  preview: React.ReactNode;
 }
 
-const StudentCard = ({ preview }: { preview: ReactElement }) => preview;
-const ProfessorCard = ({ preview }: { preview: ReactElement }) => preview;
+const StudentCard: React.FC<{ preview: React.ReactNode }> = ({ preview }) => <>{preview}</>;
+const ProfessorCard: React.FC<{ preview: React.ReactNode }> = ({ preview }) => <>{preview}</>;
 
 const BenefitsSection: React.FC = () => {
   const [activePortal, setActivePortal] = useState<"professor" | "student">("professor");

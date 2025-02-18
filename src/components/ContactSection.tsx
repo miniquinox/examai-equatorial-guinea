@@ -10,13 +10,14 @@ const ContactSection = () => {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl font-bold mb-4">
-                Get In{" "}
-                <span className="bg-gradient-to-r from-[#ff9d00] to-[#7E69AB] bg-clip-text text-transparent">
-                  Touch With Us
-                </span>
+                Join Us in{" "}
+                <span className="bg-gradient-to-r from-[#009A49] to-[#0072C6] bg-clip-text text-transparent">
+                  Transforming Education
+                </span>{" "}
+                in Equatorial Guinea
               </h2>
               <p className="text-gray-600 text-lg">
-                Reach out to us for inquiries, support, or partnership opportunities. We're here to assist you!
+                We are proud to launch our AI-powered grading platform in Equatorial Guinea—the first in Africa.
               </p>
             </div>
 
@@ -29,8 +30,8 @@ const ContactSection = () => {
                     <Phone className="w-6 h-6 text-orange-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Request a Demo</h3>
-                    <p className="text-gray-500">Schedule a Demo</p>
+                    <h3 className="text-xl font-semibold text-gray-900">Request a Demo for Your School</h3>
+                    <p className="text-gray-500">Schedule a personalized demonstration</p>
                   </div>
                 </div>
               </div>
@@ -42,7 +43,7 @@ const ContactSection = () => {
                     <MessageSquare className="w-6 h-6 text-green-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Email Us</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">Email Us (Equatorial Guinea Team)</h3>
                     <p className="text-gray-500">hello@examai.ai</p>
                   </div>
                 </div>
@@ -55,8 +56,8 @@ const ContactSection = () => {
                     <Linkedin className="w-6 h-6 text-purple-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Visit Us On LinkedIn</h3>
-                    <p className="text-gray-500">Visit Our Page</p>
+                    <h3 className="text-xl font-semibold text-gray-900">Follow Our Journey in Africa</h3>
+                    <p className="text-gray-500">Connect with us on LinkedIn</p>
                   </div>
                 </div>
               </div>
@@ -75,7 +76,7 @@ const ContactSection = () => {
                   id="name"
                   name="name"
                   placeholder="Jane Smith"
-                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-purple-500 transition-shadow"
+                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow"
                 />
               </div>
 
@@ -88,7 +89,7 @@ const ContactSection = () => {
                   id="email"
                   name="email"
                   placeholder="example@mail.com"
-                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-purple-500 transition-shadow"
+                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow"
                 />
               </div>
 
@@ -101,13 +102,13 @@ const ContactSection = () => {
                   name="message"
                   rows={4}
                   placeholder="Your message"
-                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-purple-500 transition-shadow resize-none"
+                  className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 px-6 bg-[#7e00e4] hover:bg-[#6a00c1] text-white font-semibold rounded-lg transition-colors"
+                className="w-full py-3 px-6 bg-gradient-to-r from-[#009A49] to-[#0072C6] hover:from-[#008A39] hover:to-[#0062B6] text-white font-semibold rounded-lg transition-colors"
               >
                 Submit
               </button>

@@ -14,25 +14,25 @@ const exams: Record<string, Exam> = {
       "Shows steps without skipping important ones (5pts)"
     ]
   },
-  spanish: {
-    question: "Translate the sentence: 'The weather is nice today.'",
+  french: {
+    question: "Translate: 'Equatorial Guinea leads Africa in educational innovation.'",
     rubrics: [
-      "Correct translation (5pts)",
+      "Correct translation to French (5pts)",
       "Grammar and punctuation accuracy (5pts)"
     ]
   },
-  physics: {
-    question: "What is Newton's second law of motion?",
+  history: {
+    question: "When did Equatorial Guinea gain independence, and who was its first president?",
     rubrics: [
-      "Correct explanation of the law (5pts)",
-      "Provides examples of its application (5pts)"
+      "Correct date and leader (5pts)",
+      "Context and historical significance (5pts)"
     ]
   },
-  history: {
-    question: "Who was the first President of the United States?",
+  science: {
+    question: "Explain the importance of Equatorial Guinea's biodiversity in the Gulf of Guinea.",
     rubrics: [
-      "Correct answer: George Washington (5pts)",
-      "Provides additional details about his presidency (5pts)"
+      "Scientific accuracy (5pts)",
+      "Environmental impact analysis (5pts)"
     ]
   }
 };
@@ -97,14 +97,14 @@ const GradingDemo = () => {
         <div className="text-center mb-16">
           <h3 className="text-5xl font-bold text-white mb-6">
             Try our{" "}
-            <span className="bg-gradient-to-r from-[#ff9d00] via-[#ff65b5] to-[#00ffc8] text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-[#009A49] via-[#0072C6] to-[#7E69AB] text-transparent bg-clip-text">
               Grading System Demo
             </span>
             !
           </h3>
           <p className="text-gray-400 text-xl">
-            Choose from one of the example classes below to experience how our<br />
-            AI-powered grading works.
+            Experience how ExamAi guarantees fair and transparent grades for<br />
+            every student in Equatorial Guinea.
           </p>
         </div>
 

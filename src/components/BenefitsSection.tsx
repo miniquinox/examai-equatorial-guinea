@@ -5,7 +5,8 @@ import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import { Button } from "./ui/button";
 import { 
   BookOpen, User2, FileCheck, BadgeCheck, ChartBar, BrainCircuit,
-  Users, Clock, Award, CheckCircle2, Star
+  Users, Clock, Award, CheckCircle2, Star, Zap, ShieldCheck,
+  FileWarning, BarChart2, Target, AlertTriangle, BookCheck
 } from "lucide-react";
 
 const mockChartData = [
@@ -16,158 +17,83 @@ const mockChartData = [
   { name: "May", value: 75 },
 ];
 
-interface CardData {
-  title: string;
-  description: string;
-  Component: React.FC;
-}
-
-const ResultadosCard = () => (
-  <div className="h-full p-6 bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
-    <div className="space-y-4 h-full flex flex-col">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <div className="p-2 bg-purple-100 rounded-lg group-hover:scale-110 transition-transform">
-            <FileCheck className="w-5 h-5 text-purple-600" />
-          </div>
-          <span className="font-medium text-gray-700">Iniciar Calificación</span>
-        </div>
-        <span className="text-sm text-purple-600 bg-purple-100 px-3 py-1 rounded-full group-hover:bg-purple-200 transition-colors">
-          En Progreso
-        </span>
-      </div>
-      <div className="space-y-3 flex-grow">
-        <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-          <div className="h-full w-3/4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full group-hover:animate-pulse" />
-        </div>
-        <div className="flex justify-between text-sm text-gray-500">
-          <span className="group-hover:text-purple-600 transition-colors">75% Completado</span>
-          <span className="group-hover:text-blue-600 transition-colors">45/60 Exámenes</span>
-        </div>
-      </div>
-      <div className="flex gap-3 mt-auto">
-        <Button variant="outline" className="flex-1 group-hover:bg-purple-50 transition-colors">Cancelar</Button>
-        <Button className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-500 group-hover:to-blue-500">Continuar</Button>
-      </div>
-    </div>
-  </div>
-);
-
-const CalificacionCard = () => (
-  <div className="p-6 bg-gradient-to-br from-green-50 to-teal-50 rounded-xl shadow-inner">
-    <div className="space-y-4">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center space-x-3">
-          <div className="p-2 bg-green-100 rounded-lg">
-            <BadgeCheck className="w-5 h-5 text-green-600" />
-          </div>
-          <span className="font-medium text-gray-700">Verificación de Integridad</span>
-        </div>
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="bg-white p-4 rounded-lg shadow-sm">
-          <div className="text-sm text-gray-500 mb-1">Calificaciones Verificadas</div>
-          <div className="text-2xl font-bold text-green-600">98.5%</div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm">
-          <div className="text-sm text-gray-500 mb-1">Tasa de Confianza</div>
-          <div className="text-2xl font-bold text-teal-600">99.9%</div>
-        </div>
-      </div>
-      <Button className="w-full bg-gradient-to-r from-green-600 to-teal-600">
-        Verificar Exámenes
-      </Button>
-    </div>
-  </div>
-);
-
-const GestionCard = () => {
-  const [students, setStudents] = useState(250);
-  const [questions, setQuestions] = useState(15);
-  const [accuracy, setAccuracy] = useState(98);
+const ResultadosCard = () => {
+  const [grade, setGrade] = useState(0);
+  const [reviewed, setReviewed] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStudents(prev => prev + 1);
-      if (students > 260) setStudents(250);
-    }, 2000);
+      setGrade(prev => (prev < 85 ? prev + 1 : 85));
+      setReviewed(prev => (prev < 45 ? prev + 1 : 45));
+    }, 50);
     return () => clearInterval(interval);
-  }, [students]);
+  }, []);
 
   return (
-    <div className="h-full p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+    <div className="h-full p-6 bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
       <div className="space-y-4 h-full flex flex-col">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-blue-100 rounded-lg group-hover:scale-110 transition-transform">
-              <User2 className="w-5 h-5 text-blue-600" />
+            <div className="p-2 bg-purple-100 rounded-lg group-hover:scale-110 transition-transform">
+              <FileCheck className="w-5 h-5 text-purple-600" />
             </div>
-            <span className="font-medium text-gray-700">Demo Examen SQL</span>
+            <span className="font-medium text-gray-700">Iniciar Calificación</span>
           </div>
-          <span className="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full group-hover:bg-blue-200 transition-colors">
-            Activo
+          <span className="text-sm text-purple-600 bg-purple-100 px-3 py-1 rounded-full group-hover:bg-purple-200 transition-colors">
+            En Progreso
           </span>
         </div>
 
-        <div className="flex-grow space-y-6">
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-blue-50/50 transition-all overflow-hidden">
-              <div className="text-3xl font-bold text-blue-600 group-hover:scale-110 transition-transform">
-                {students}
-              </div>
-              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
-                <Users className="w-3 h-3" /> Estudiantes
-              </div>
+        <div className="grid grid-cols-2 gap-3 animate-fade-up">
+          <div className="bg-white/80 p-3 rounded-lg shadow-sm group-hover:bg-purple-50/50 transition-all">
+            <div className="text-2xl font-bold text-purple-600 group-hover:scale-110 transition-transform">
+              {grade}%
             </div>
-            <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-indigo-50/50 transition-all">
-              <div className="text-3xl font-bold text-indigo-600 group-hover:scale-110 transition-transform">
-                {questions}
-              </div>
-              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
-                <CheckCircle2 className="w-3 h-3" /> Preguntas
-              </div>
-            </div>
-            <div className="bg-white p-3 rounded-lg shadow-sm text-center group-hover:bg-purple-50/50 transition-all">
-              <div className="text-3xl font-bold text-purple-600 group-hover:scale-110 transition-transform">
-                {accuracy}%
-              </div>
-              <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
-                <Star className="w-3 h-3" /> Precisión
-              </div>
-            </div>
+            <div className="text-xs text-gray-500">Promedio Actual</div>
           </div>
+          <div className="bg-white/80 p-3 rounded-lg shadow-sm group-hover:bg-blue-50/50 transition-all">
+            <div className="text-2xl font-bold text-blue-600 group-hover:scale-110 transition-transform">
+              {reviewed}/60
+            </div>
+            <div className="text-xs text-gray-500">Exámenes Revisados</div>
+          </div>
+        </div>
 
-          <div className="bg-white/50 p-4 rounded-lg group-hover:bg-blue-50/50 transition-all">
-            <h4 className="text-sm font-medium text-gray-700 mb-3">Estadísticas del Examen</h4>
+        <div className="space-y-3 flex-grow">
+          <div className="bg-white/80 p-4 rounded-lg shadow-sm group-hover:bg-purple-50/50 transition-all">
+            <h4 className="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+              <Target className="w-4 h-4 text-purple-600" />
+              Control de Calificación
+            </h4>
             <div className="space-y-3">
               <div>
                 <div className="flex justify-between text-sm mb-1">
-                  <span>Tiempo Promedio</span>
-                  <span className="text-blue-600">45 min</span>
+                  <span>Precisión de IA</span>
+                  <span className="text-purple-600">98%</span>
                 </div>
                 <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                  <div className="h-full w-3/4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full group-hover:animate-pulse" />
+                  <div className="h-full w-[98%] bg-gradient-to-r from-purple-500 to-blue-500 rounded-full group-hover:animate-pulse" />
                 </div>
               </div>
               <div>
                 <div className="flex justify-between text-sm mb-1">
-                  <span>Tasa de Aprobación</span>
-                  <span className="text-indigo-600">85%</span>
+                  <span>Revisión Manual</span>
+                  <span className="text-blue-600">75%</span>
                 </div>
                 <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                  <div className="h-full w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full group-hover:animate-pulse" />
+                  <div className="h-full w-3/4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:animate-pulse" />
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex gap-3 mt-4">
-          <Button variant="outline" className="flex-1 group-hover:bg-blue-50 transition-colors">
-            <Clock className="w-4 h-4 mr-2" /> Historial
+        <div className="flex gap-3 mt-auto">
+          <Button variant="outline" className="flex-1 group-hover:bg-purple-50 transition-colors">
+            <Clock className="w-4 h-4 mr-2" /> Pausar
           </Button>
-          <Button className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:from-blue-500 group-hover:to-indigo-500">
-            <Award className="w-4 h-4 mr-2" /> Resultados
+          <Button className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-500 group-hover:to-blue-500">
+            <Zap className="w-4 h-4 mr-2" /> Continuar
           </Button>
         </div>
       </div>
@@ -175,61 +101,192 @@ const GestionCard = () => {
   );
 };
 
-const ControlCard = () => (
-  <div className="p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl shadow-inner">
-    <div className="space-y-4">
-      <div className="flex items-center justify-between mb-4">
+const CalificacionCard = () => (
+  <div className="h-full p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+    <div className="space-y-4 h-full flex flex-col">
+      <div className="flex items-center justify-between mb-2">
         <div className="flex items-center space-x-3">
-          <div className="p-2 bg-orange-100 rounded-lg">
-            <ChartBar className="w-5 h-5 text-orange-600" />
+          <div className="p-2 bg-emerald-100 rounded-lg group-hover:scale-110 transition-transform">
+            <ShieldCheck className="w-5 h-5 text-emerald-600" />
           </div>
-          <span className="font-medium text-gray-700">Análisis de Rendimiento</span>
+          <span className="font-medium text-gray-700">Verificación de Integridad</span>
         </div>
       </div>
-      <div className="h-40">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={mockChartData}>
-            <Line 
-              type="monotone" 
-              dataKey="value" 
-              stroke="url(#gradient)" 
-              strokeWidth={3}
-              dot={{ fill: "#ff8a4c", strokeWidth: 2 }} 
-            />
-            <defs>
-              <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#ff8a4c" />
-                <stop offset="100%" stopColor="#ff4c4c" />
-              </linearGradient>
-            </defs>
-          </LineChart>
-        </ResponsiveContainer>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div className="bg-white/80 p-4 rounded-lg shadow-sm group-hover:bg-emerald-50/50 transition-all">
+          <div className="text-sm text-gray-500 mb-1">Detección de Trampas</div>
+          <div className="text-2xl font-bold text-emerald-600 group-hover:scale-110 transition-transform">99.9%</div>
+        </div>
+        <div className="bg-white/80 p-4 rounded-lg shadow-sm group-hover:bg-teal-50/50 transition-all">
+          <div className="text-sm text-gray-500 mb-1">Confianza</div>
+          <div className="text-2xl font-bold text-teal-600 group-hover:scale-110 transition-transform">100%</div>
+        </div>
       </div>
+
+      <div className="bg-white/80 p-4 rounded-lg shadow-sm space-y-3 flex-grow group-hover:bg-emerald-50/50 transition-all">
+        <h4 className="font-medium text-gray-700 flex items-center gap-2">
+          <FileWarning className="w-4 h-4 text-emerald-600" />
+          Alertas de Integridad
+        </h4>
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-sm p-2 bg-emerald-50 rounded-lg">
+            <span className="text-emerald-700">Copias Detectadas</span>
+            <span className="font-medium text-emerald-600">0</span>
+          </div>
+          <div className="flex items-center justify-between text-sm p-2 bg-emerald-50 rounded-lg">
+            <span className="text-emerald-700">Plagio Detectado</span>
+            <span className="font-medium text-emerald-600">0</span>
+          </div>
+          <div className="flex items-center justify-between text-sm p-2 bg-emerald-50 rounded-lg">
+            <span className="text-emerald-700">Intentos Sospechosos</span>
+            <span className="font-medium text-emerald-600">0</span>
+          </div>
+        </div>
+      </div>
+
+      <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:from-emerald-500 group-hover:to-teal-500">
+        <ShieldCheck className="w-4 h-4 mr-2" /> Sistema Activo
+      </Button>
     </div>
   </div>
 );
 
+const ControlCard = () => {
+  const [stats, setStats] = useState({
+    mean: 75,
+    median: 78,
+    lowest: 45,
+    highest: 98
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStats(prev => ({
+        mean: prev.mean + (Math.random() - 0.5),
+        median: prev.median + (Math.random() - 0.5),
+        lowest: prev.lowest,
+        highest: prev.highest
+      }));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="h-full p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+      <div className="space-y-4 h-full flex flex-col">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center space-x-3">
+            <div className="p-2 bg-orange-100 rounded-lg group-hover:scale-110 transition-transform">
+              <BarChart2 className="w-5 h-5 text-orange-600" />
+            </div>
+            <span className="font-medium text-gray-700">Análisis de Rendimiento</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-white/80 p-3 rounded-lg shadow-sm group-hover:bg-orange-50/50 transition-all">
+            <div className="text-2xl font-bold text-orange-600 group-hover:scale-110 transition-transform">
+              {stats.mean.toFixed(1)}
+            </div>
+            <div className="text-xs text-gray-500">Media</div>
+          </div>
+          <div className="bg-white/80 p-3 rounded-lg shadow-sm group-hover:bg-red-50/50 transition-all">
+            <div className="text-2xl font-bold text-red-600 group-hover:scale-110 transition-transform">
+              {stats.median.toFixed(1)}
+            </div>
+            <div className="text-xs text-gray-500">Mediana</div>
+          </div>
+        </div>
+
+        <div className="bg-white/80 p-4 rounded-lg shadow-sm flex-grow group-hover:bg-orange-50/50 transition-all">
+          <h4 className="text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 text-orange-600" />
+            Distribución de Notas
+          </h4>
+          <div className="h-40">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={mockChartData}>
+                <Line 
+                  type="monotone" 
+                  dataKey="value" 
+                  stroke="url(#gradient)" 
+                  strokeWidth={3}
+                  dot={{ fill: "#f97316", strokeWidth: 2 }} 
+                />
+                <defs>
+                  <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#f97316" />
+                    <stop offset="100%" stopColor="#ef4444" />
+                  </linearGradient>
+                </defs>
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="grid grid-cols-2 gap-3 mt-3">
+            <div className="text-sm">
+              <span className="text-gray-500">Nota más baja: </span>
+              <span className="font-medium text-orange-600">{stats.lowest}</span>
+            </div>
+            <div className="text-sm text-right">
+              <span className="text-gray-500">Nota más alta: </span>
+              <span className="font-medium text-red-600">{stats.highest}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ConfianzaCard = () => (
-  <div className="p-6 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl shadow-inner">
-    <div className="space-y-4">
-      <div className="flex items-center space-x-3 mb-4">
-        <div className="p-2 bg-pink-100 rounded-lg">
-          <BrainCircuit className="w-5 h-5 text-pink-600" />
+  <div className="h-full p-6 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl shadow-inner backdrop-blur-lg border border-white/20 group hover:-translate-y-1 transition-all duration-300">
+    <div className="space-y-4 h-full flex flex-col">
+      <div className="flex items-center space-x-3 mb-2">
+        <div className="p-2 bg-pink-100 rounded-lg group-hover:scale-110 transition-transform">
+          <BookCheck className="w-5 h-5 text-pink-600" />
         </div>
         <span className="font-medium text-gray-700">Evaluación de Respuesta</span>
       </div>
-      <div className="bg-white p-4 rounded-lg shadow-sm space-y-3">
-        <p className="text-sm text-gray-700 font-medium">¿Cuál fue la causa principal de la independencia?</p>
-        <div className="flex items-center space-x-2">
-          <div className="h-2 flex-grow bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full w-[90%] bg-gradient-to-r from-pink-500 to-purple-500" />
+
+      <div className="bg-white/80 p-4 rounded-lg shadow-sm space-y-3 flex-grow group-hover:bg-pink-50/50 transition-all">
+        <div className="space-y-2">
+          <p className="text-sm text-gray-700 font-medium">¿Cuál es la complejidad de QuickSort en el peor caso?</p>
+          <div className="p-3 bg-pink-50 rounded-lg">
+            <p className="text-sm text-pink-700">
+              La complejidad es O(n²). Esto ocurre cuando el pivote siempre es el elemento más pequeño o más grande, resultando en una partición desequilibrada.
+            </p>
           </div>
-          <span className="text-sm font-medium text-purple-600">9/10</span>
+          <div className="flex items-center space-x-2">
+            <div className="h-2 flex-grow bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-full w-[95%] bg-gradient-to-r from-pink-500 to-purple-500 rounded-full group-hover:animate-pulse" />
+            </div>
+            <span className="text-sm font-medium text-purple-600 group-hover:scale-110 transition-transform">9.5/10</span>
+          </div>
         </div>
-        <p className="text-sm text-gray-600 italic">
-          "Excelente comprensión de la historia de Guinea Ecuatorial"
-        </p>
+
+        <div className="space-y-2">
+          <h4 className="text-sm font-medium text-gray-700">Retroalimentación de IA:</h4>
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 text-sm text-emerald-600">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Explicación clara y concisa</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-emerald-600">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Menciona el caso específico</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-emerald-600">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Incluye la notación Big O</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <Button className="w-full bg-gradient-to-r from-pink-600 to-purple-600 group-hover:from-pink-500 group-hover:to-purple-500">
+        <Award className="w-4 h-4 mr-2" /> Ver Más Detalles
+      </Button>
     </div>
   </div>
 );
@@ -414,7 +471,11 @@ const PreguntasCard = () => (
   </div>
 );
 
-const professorCards: CardData[] = [
+const professorCards: {
+  title: string;
+  description: string;
+  Component: React.FC;
+}[] = [
   {
     title: "Resultados Rápidos y Precisos",
     description: "Asegurando que los estudiantes reciban calificaciones correctas sin demoras.",
@@ -428,11 +489,6 @@ const professorCards: CardData[] = [
   {
     title: "Gestión Justa de Clases Numerosas",
     description: "La calificación se mantiene objetiva, incluso con cientos de estudiantes.",
-    Component: GestionCard,
-  },
-  {
-    title: "Los Profesores Mantienen el Control",
-    description: "Los profesores definen los estándares, la IA asegura que cada estudiante sea tratado por igual.",
     Component: ControlCard,
   },
   {
@@ -442,7 +498,11 @@ const professorCards: CardData[] = [
   },
 ];
 
-const studentCards: CardData[] = [
+const studentCards: {
+  title: string;
+  description: string;
+  Component: React.FC;
+}[] = [
   {
     title: "Retroalimentación Instantánea para el Aprendizaje",
     description: "Los estudios demuestran que la retroalimentación rápida ayuda a los estudiantes a aprender más rápido y retener más.",

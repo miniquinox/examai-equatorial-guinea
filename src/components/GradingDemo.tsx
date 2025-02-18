@@ -91,8 +91,19 @@ const GradingDemo = () => {
   };
 
   return (
-    <div className="py-20 px-4 bg-[rgba(17,17,17,0.6)]">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative py-20 px-4">
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/lovable-uploads/61ef02c8-7350-4e11-8c63-0170238d3290.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(8px) brightness(0.3)',
+          opacity: 0.9
+        }}
+      />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h3 className="text-5xl font-bold text-white mb-6">
             ¡Prueba nuestro{" "}

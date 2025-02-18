@@ -7,38 +7,38 @@ const Features = () => {
   const features = [
     {
       icon: Pencil,
-      title: "Automated Grading",
-      description: "Automate grading to save professors hours, giving them more time to focus on teaching and engaging with students.",
+      title: "Accurate, AI-Powered Grading",
+      description: "Guaranteeing fair and error-free assessments for all students.",
       color: "bg-orange-100"
     },
     {
       icon: MessageSquare,
-      title: "Student Feedback",
-      description: "Deliver personalized, instant feedback that helps students understand their progress and areas for improvement.",
+      title: "Personalized Learning Insights",
+      description: "Helping students understand their strengths and areas to improve.",
       color: "bg-green-100"
     },
     {
       icon: Database,
-      title: "Data Analytics Portal",
-      description: "Analyze student performance, identify challenging questions, and enhance learning with data-driven insights.",
+      title: "Performance Tracking & Fairness Reports",
+      description: "Giving schools data to ensure fair grading and performance comparisons.",
       color: "bg-blue-100"
     },
     {
       icon: CheckSquare,
-      title: "Professor-Guided Rubrics",
-      description: "Ensure grading meets course goals by using customizable rubrics tailored to each professor's unique standards.",
+      title: "Professor-Driven Custom Grading",
+      description: "Professors stay in control while AI ensures precision and consistency.",
       color: "bg-purple-100"
     },
     {
       icon: Brain,
-      title: "Create Quizzes with AI",
-      description: "Effortlessly create exams, quizzes, or homework using AI—upload notes, past exams, or write content in one click!",
+      title: "Build Better Exams with AI",
+      description: "Create custom exams and homework tailored to local curriculum standards.",
       color: "bg-purple-100"
     },
     {
       icon: Edit3,
-      title: "Handwritten Grading",
-      description: "Grade handwritten assessments effortlessly with AI, using professor-defined rubrics for accurate results.",
+      title: "Image-Based Grading for Paper Exams",
+      description: "Scan paper exams for accurate grading, reducing errors and bias.",
       color: "bg-pink-100"
     }
   ];
@@ -49,7 +49,7 @@ const Features = () => {
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-4xl font-bold mb-4">Discover our Features</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Enhanced security, and automated grading, providing educators with real-time analytics and personalized feedback.
+            Enhanced security, fair grading, and transparent assessments, providing educators with real-time analytics and personalized feedback.
           </p>
         </div>
 

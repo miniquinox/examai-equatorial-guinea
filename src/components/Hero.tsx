@@ -7,11 +7,11 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-up">
           <h1 className="text-5xl font-bold mb-6">
-            Revolutionizing Grading with{" "}
-            <span className="gradient-text">ExamAI</span>
+            Bringing Fair, Smart, and Transparent Grading to{" "}
+            <span className="gradient-text">Equatorial Guinea</span>
           </h1>
           <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-            AI-powered grading, guided by professors – fully automated.
+            Equatorial Guinea is leading Africa in AI-powered education—ensuring fair, transparent, and accurate assessments for every student.
           </p>
         </div>
 
@@ -19,21 +19,21 @@ const Hero = () => {
           <div className="card p-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-bold text-lg">Professor Dashboard</h3>
-              <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
+              <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">
                 Professor
               </span>
             </div>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <BarChart3 className="text-purple-500" />
+                <BarChart3 className="text-green-500" />
                 <span>Total exams created: 17</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Users className="text-purple-500" />
+                <Users className="text-green-500" />
                 <span>Total Exams Assigned: 34</span>
               </div>
               <div className="flex items-center space-x-3">
-                <BookOpen className="text-purple-500" />
+                <BookOpen className="text-green-500" />
                 <span>Total Questions Assigned: 150</span>
               </div>
             </div>
@@ -50,7 +50,7 @@ const Hero = () => {
                 {[...Array(5)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 border-2 border-white"
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-blue-500 border-2 border-white"
                   ></div>
                 ))}
               </div>

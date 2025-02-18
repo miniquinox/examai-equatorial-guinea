@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import { Button } from "./ui/button";
@@ -16,8 +15,8 @@ const BenefitsSection = () => {
 
   const professorCards = [
     {
-      title: "Instant Grading",
-      description: "Professors receive grades within minutes, providing faster feedback to students.",
+      title: "Fast & Accurate Results",
+      description: "Ensuring students receive correct grades without delays.",
       preview: (
         <div className="p-4 bg-gray-50 rounded-lg">
           <p className="font-medium mb-3">Start grading</p>
@@ -29,8 +28,8 @@ const BenefitsSection = () => {
       ),
     },
     {
-      title: "Save Time and Money",
-      description: "Automate grading to reduce the time spent and cut down on grading costs.",
+      title: "Trustworthy, Corruption-Free Grading",
+      description: "AI prevents grade manipulation, favoritism, or bribes.",
       preview: (
         <div className="p-4 bg-gray-50 rounded-lg">
           <div className="flex gap-3">
@@ -41,8 +40,8 @@ const BenefitsSection = () => {
       ),
     },
     {
-      title: "Teach Larger Classes Easily",
-      description: "Handle bigger classes without the burden of longer grading times or added costs.",
+      title: "Supporting Large Classrooms Fairly",
+      description: "Grading remains objective, even with hundreds of students.",
       preview: (
         <div className="p-4 bg-gray-50 rounded-lg">
           <h4 className="font-medium mb-2">SQL Exam Demo</h4>
@@ -52,8 +51,8 @@ const BenefitsSection = () => {
       ),
     },
     {
-      title: "Professor-Driven Grading",
-      description: "Professors set custom rubrics, ensuring grading still aligns with their standards.",
+      title: "Professors Stay in Control",
+      description: "Professors define standards, AI ensures every student is treated equally.",
       preview: (
         <div className="h-32">
           <ResponsiveContainer width="100%" height="100%">
@@ -77,13 +76,13 @@ const BenefitsSection = () => {
       ),
     },
     {
-      title: "Boost Student Learning",
-      description: "Detailed feedback and performance data help students improve faster and more effectively.",
+      title: "Building Confidence in Students",
+      description: "Students trust their grades, inspiring better academic performance.",
       preview: (
         <div className="p-4 bg-gray-50 rounded-lg">
-          <h4 className="font-medium mb-2">Question: Primary cause of WWI?</h4>
-          <p className="text-sm text-gray-600 mb-2">Score: 6/10</p>
-          <p className="text-sm">The assassination of Archduke Franz Ferdinand led to war.</p>
+          <h4 className="font-medium mb-2">Question: What was the primary cause of independence?</h4>
+          <p className="text-sm text-gray-600 mb-2">Score: 9/10</p>
+          <p className="text-sm">Excellent understanding of Equatorial Guinea's history.</p>
         </div>
       ),
     },
@@ -224,4 +223,3 @@ const BenefitsSection = () => {
 };
 
 export default BenefitsSection;
-

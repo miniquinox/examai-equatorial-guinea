@@ -37,7 +37,7 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-[#9b87f5] to-[#7E69AB] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#009A49] to-[#0072C6] bg-clip-text text-transparent;
   }
 
   .nav-link {
@@ -67,4 +67,3 @@
 .animate-fade-up {
   animation: fadeUp 0.6s ease-out forwards;
 }
-

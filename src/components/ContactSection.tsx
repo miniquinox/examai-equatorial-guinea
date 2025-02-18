@@ -1,4 +1,3 @@
-
 import { Phone, MessageSquare, MapPin, Globe, ArrowRight, Clock, Users, School, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -148,13 +147,15 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Image with overlay */}
-            <div className="relative h-48 rounded-xl overflow-hidden mt-8">
-              <img 
-                src="/placeholder.svg" 
-                alt="Malabo" 
-                className="w-full h-full object-cover"
-              />
+            {/* Map Card */}
+            <div className="relative h-96 rounded-xl overflow-hidden mt-8">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63825.79927090987!2d8.737326!3d3.7504121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1067804dc9c85627%3A0x87026d81a1de1de0!2sMalabo%2C%20Equatorial%20Guinea!5e0!3m2!1sen!2sus!4v1710644521274!5m2!1sen!2sus"
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                 <div className="text-white">
                   <h4 className="text-lg font-semibold">Malabo, Guinea Ecuatorial</h4>
@@ -165,15 +166,15 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="relative">
+          <div className="relative h-[calc(100vh-16rem)]">
             <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-3xl transform -rotate-1"></div>
-            <div className="relative bg-white p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-100">
+            <div className="relative bg-white p-8 rounded-2xl shadow-xl backdrop-blur-sm border border-gray-100 h-full flex flex-col">
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Envíanos un mensaje</h3>
                 <p className="text-gray-500">Estamos aquí para ayudarte con cualquier pregunta sobre nuestra plataforma.</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 flex-grow flex flex-col">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Nombre
@@ -204,7 +205,7 @@ const ContactSection = () => {
                   />
                 </div>
 
-                <div>
+                <div className="flex-grow">
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Mensaje
                   </label>
@@ -213,9 +214,8 @@ const ContactSection = () => {
                     name="message"
                     value={formState.message}
                     onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
-                    rows={4} 
-                    placeholder="Tu mensaje" 
-                    className="w-full px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none" 
+                    className="w-full h-full min-h-[200px] px-4 py-3 bg-gray-50 border-none rounded-lg focus:ring-2 focus:ring-[#009A49] transition-shadow resize-none" 
+                    placeholder="Tu mensaje"
                   />
                 </div>
 
@@ -225,14 +225,14 @@ const ContactSection = () => {
                 >
                   Enviar Mensaje
                 </Button>
-              </form>
 
-              <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                <div className="flex items-center gap-2 text-sm text-green-700">
-                  <Clock className="w-4 h-4" />
-                  <span>Tiempo de respuesta promedio: 2-3 horas</span>
+                <div className="p-4 bg-green-50 rounded-lg mt-auto">
+                  <div className="flex items-center gap-2 text-sm text-green-700">
+                    <Clock className="w-4 h-4" />
+                    <span>Tiempo de respuesta promedio: 2-3 horas</span>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
